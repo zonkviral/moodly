@@ -2,4 +2,6 @@ import { Stack } from "expo-router"
 
 import "./global.css"
 
-export const RootLayout: React.FC = () => <Stack />
+const RootLayout: React.FC = () => <Stack />
+
+export default RootLayout

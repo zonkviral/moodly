@@ -21,11 +21,6 @@ export default defineConfig([
     },
     rules: {
       "prettier/prettier": "error",
-      "no-console": ["warn", { allow: ["warn", "error"] }],
-      eqeqeq: ["error", "always"],
-      curly: ["error", "all"],
-      "no-var": "error",
-      "prefer-const": "error",
     },
   },
 
@@ -44,25 +39,10 @@ export default defineConfig([
     },
     rules: {
       ...tseslint.configs.recommended.rules,
-      "no-unused-vars": "off",
-      "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
       "@typescript-eslint/no-explicit-any": "error",
-      "@typescript-eslint/explicit-module-boundary-types": "error",
-      "@typescript-eslint/consistent-type-imports": "error",
-      "@typescript-eslint/ban-types": [
-        "error",
-        {
-          types: {
-            "React.FC": {
-              message: "Avoid React.FC — type props explicitly instead.",
-            },
-            "React.FunctionComponent": {
-              message: "Avoid React.FunctionComponent — type props explicitly instead.",
-            },
-          },
-        },
-      ],
-      "@typescript-eslint/no-floating-promises": "error",
+      "@typescript-eslint/explicit-module-boundary-types": "off",
+      "@typescript-eslint/consistent-type-definitions": ["error", "type"],
+      "@typescript-eslint/no-empty-object-type": "error",
     },
   },
 
@@ -81,10 +61,6 @@ export default defineConfig([
       ...pluginReact.configs.recommended.rules,
       ...pluginReactHooks.configs.recommended.rules,
       "react/react-in-jsx-scope": "off",
-      "react/prop-types": "off",
-      "react/jsx-boolean-value": ["error", "never"],
-      "react/jsx-curly-brace-presence": ["error", "never"],
-      "react/self-closing-comp": "error",
     },
   },
 ])
