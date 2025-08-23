@@ -21,6 +21,7 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "@expo-google-fonts/nunito": "^0.4.1",
     "@expo/vector-icons": "^14.1.0",
     "@react-navigation/bottom-tabs": "^7.3.10",
     "@react-navigation/elements": "^2.3.8",
@@ -54,7 +55,7 @@
     "@babel/core": "^7.25.2",
     "@commitlint/cli": "^19.8.0",
     "@commitlint/config-conventional": "^19.8.0",
-    "@eslint/css": "^0.7.0",
+    "@eslint/css": "^0.10.0",
     "@eslint/js": "^9.26.0",
     "@testing-library/react-native": "^13.2.2",
     "@types/jest": "^29.5.12",
