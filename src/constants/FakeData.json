@@ -1,0 +1,53 @@
+{
+  "moods": [
+    {
+      "id": "2025-08-25T08:00:00Z",
+      "date": "2025-08-25",
+      "mood": "Happy",
+      "note": "Had a great day coding!"
+    },
+    {
+      "id": "2025-08-26T08:00:00Z",
+      "date": "2025-08-26",
+      "mood": "Tired",
+      "note": "A bit tired, but okay."
+    },
+    {
+      "id": "2025-08-27T08:00:00Z",
+      "date": "2025-08-27",
+      "mood": "Sad",
+      "note": "A bit sad, but okay."
+    },
+    {
+      "id": "2025-08-28T08:00:00Z",
+      "date": "2025-08-28",
+      "mood": "Angry",
+      "note": "A bit sad, but okay."
+    },
+    {
+      "id": "2025-08-29T08:00:00Z",
+      "date": "2025-08-29",
+      "mood": "Happy",
+      "note": "A bit sad, but okay."
+    },
+    {
+      "id": "2025-08-30T08:00:00Z",
+      "date": "2025-08-30",
+      "mood": "Sad",
+      "note": "A bit sad, but okay."
+    },
+    {
+      "id": "2025-08-31T08:00:00Z",
+      "date": "2025-08-31",
+      "mood": "Neutral",
+      "note": "A bit sad, but okay."
+    }
+  ],
+  "streak": 2,
+  "lastEntryDate": "2025-08-25",
+  "settings": {
+    "theme": "light",
+    "notifications": true
+  },
+  "premium": false
+}

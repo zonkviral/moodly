@@ -6,5 +6,5 @@ export const HeaderDate = () => {
     month: "short",
     day: "numeric",
   })
-  return <Text className="text-black text-5xl leading-normal">{currentDate}</Text>
+  return <Text className="text-black text-4xl leading-normal">{currentDate}</Text>
 }

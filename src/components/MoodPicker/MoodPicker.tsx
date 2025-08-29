@@ -1,13 +1,8 @@
 import { useState } from "react"
 import { FlatList, Pressable, Text } from "react-native"
 
-const moods = [
-  { emoji: "😀", label: "Happy" },
-  { emoji: "😐", label: "Neutral" },
-  { emoji: "😢", label: "Sad" },
-  { emoji: "😡", label: "Angry" },
-  { emoji: "😴", label: "Tired" },
-]
+import { moods } from "../../constants/moods"
+
 type EmojiItemsProps = {
   item: (typeof moods)[number]
 }

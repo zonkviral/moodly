@@ -1,10 +1,10 @@
 import React from "react"
 import { render, fireEvent } from "@testing-library/react-native"
-import Index from "../../app/index"
+import HomeScreen from "../../app/(tabs)/Home"
 
 describe("Index screen", () => {
   it("renders the header date", () => {
-    const { getByText } = render(<Index />)
+    const { getByText } = render(<HomeScreen />)
     const currentDay = new Date().toLocaleString("en-US", {
       weekday: "long",
       month: "short",
@@ -14,12 +14,12 @@ describe("Index screen", () => {
   })
 
   it("renders mood picker", () => {
-    const { getByText } = render(<Index />)
+    const { getByText } = render(<HomeScreen />)
     expect(getByText("😀")).toBeTruthy()
   })
 
   it("updates reflection input when typing", () => {
-    const { getByPlaceholderText } = render(<Index />)
+    const { getByPlaceholderText } = render(<HomeScreen />)
     const input = getByPlaceholderText("Write a short reflection...")
     fireEvent.changeText(input, "Hello world")
     expect(input.props.value).toBe("Hello world")
@@ -27,14 +27,14 @@ describe("Index screen", () => {
 
   it("triggers button press", () => {
     const consoleSpy = jest.spyOn(console, "log").mockImplementation(() => {})
-    const { getByText } = render(<Index />)
+    const { getByText } = render(<HomeScreen />)
     fireEvent.press(getByText("Save Today's Mood"))
     expect(consoleSpy).toHaveBeenCalledWith("pressed")
     consoleSpy.mockRestore()
   })
 
   it("renders streak counter", () => {
-    const { getByText } = render(<Index />)
+    const { getByText } = render(<HomeScreen />)
     expect(getByText("🔥 3-day streak")).toBeTruthy()
   })
 })
