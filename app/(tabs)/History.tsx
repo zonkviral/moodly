@@ -34,8 +34,8 @@ const History = () => {
     const moodMeta = moodsMap[index]
 
     return {
-      x: index + 1,
-      y: moodMeta.value,
+      _x: index + 1,
+      _y: moodMeta.value,
       emoji: moodMeta.emoji,
       customlabel: `${weekday}\n(${monthDay})`,
     }
@@ -44,7 +44,6 @@ const History = () => {
     axis: { stroke: "rgba(0, 0, 0, 0.2)" },
     tickLabels: { fontSize: 18, fill: "#333" },
     grid: { stroke: "rgba(0, 0, 0, 0.1)", strokeWidth: 1 },
-    scatterData: { fill: "#7c3aed", stroke: "#fff", strokeWidth: 2 },
     lineData: { stroke: "#7c3aed", strokeWidth: 3 },
     areaData: { fill: "rgba(124, 58, 237, 0.2)", stroke: "none" },
   }
@@ -63,15 +62,29 @@ const History = () => {
     <ScreenWrapper>
       <Text className="text-xl font-bold mb-4">Mood History</Text>
       <ScrollView>
-        <View className="flex flex-row-reverse justify-center mx-2">
+        <View className="flex flex-col-reverse justify-center mx-2 self-center">
           <View style={{ height: 300 }}>
             <VictoryChart
-              width={screenWidth - 85}
+              width={screenWidth - 50}
               height={280}
               domain={{ y: [1, 5] }}
-              padding={{ left: 15, top: 20, right: 40, bottom: 80 }}
+              padding={{ left: 37, top: 30, right: 37, bottom: 80 }}
               theme={VictoryTheme.material}
             >
+              {/* Y-axis with date labels */}
+              <VictoryAxis
+                dependentAxis
+                tickValues={[1, 2, 3, 4, 5]}
+                tickFormat={(y) => {
+                  const mood = moods.find((m) => m.value === y)
+                  return mood ? mood.emoji : y
+                }}
+                style={{
+                  tickLabels: { fontSize: 20 },
+                  axis: { stroke: "transparent" },
+                  grid: { stroke: "rgba(0,0,0,0.05)" },
+                }}
+              />
               {/* X-axis with date labels */}
               <VictoryAxis
                 tickFormat={(x) => chartData[x - 1]?.customlabel || ""}
@@ -102,22 +115,26 @@ const History = () => {
               {/* Data points */}
               <VictoryScatter
                 data={chartData}
-                labels={({ datum }) => datum.emoji}
+                size={5} // dot size
                 style={{
-                  data: chartStyles.scatterData,
+                  data: {
+                    fill: "#7c3aed",
+                    stroke: "white",
+                    strokeWidth: 2,
+                  },
                 }}
               />
             </VictoryChart>
           </View>
           {/* Mood Legend */}
-          <View className="mt-2">
+          <View className="mb-2 flex flex-row flex-wrap justify-center w-[80%] self-center">
             {[...moods].map((mood) => (
               <View
-                className="flex flex-row p-2 mb-2 items-center bg-[rgba(124,58,237,0.1)] rounded-lg"
+                className="flex flex-row p-2 mx-1 my-1 items-center bg-[rgba(124,58,237,0.1)] rounded-lg"
                 key={mood.value}
               >
-                <Text className="pr-2">{mood.emoji}</Text>
-                <Text>{mood.label}</Text>
+                <Text className="pr-2 text-base">{mood.emoji}</Text>
+                <Text className="text-s">{mood.label}</Text>
               </View>
             ))}
           </View>
