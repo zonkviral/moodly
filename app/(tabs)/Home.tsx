@@ -24,7 +24,9 @@ const Home = () => {
             <SectionTitle>How are you feeling today?</SectionTitle>
             <MoodPicker />
             <ReflectionInput value={text} onChange={setText} />
-            <Button onPressHandle={() => console.log("pressed")}>Save Today&apos;s Mood</Button>
+            <Button className="mt-10" onPressHandle={() => console.log("pressed")}>
+              Save Today&apos;s Mood
+            </Button>
             <StreakCounter days={3} />
           </ScrollView>
         </KeyboardAvoidingView>
