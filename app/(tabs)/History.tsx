@@ -80,7 +80,6 @@ const History = () => {
                   return mood ? mood.emoji : y
                 }}
                 style={{
-                  tickLabels: { fontSize: 20 },
                   axis: { stroke: "transparent" },
                   grid: { stroke: "rgba(0,0,0,0.05)" },
                 }}
