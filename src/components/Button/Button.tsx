@@ -8,6 +8,7 @@ type ButtonProps = {
 
 export const Button = ({ children, onPressHandle, className }: ButtonProps) => (
   <Pressable
+    testID="button"
     onPress={onPressHandle}
     className={`${className} bg-purple-400 px-14 py-4 rounded-2xl`}
   >
